@@ -10,10 +10,11 @@
         android:textSize="48dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="HOME"
+        android:text="Settings"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
     </TextView>
+
 
 </LinearLayout>

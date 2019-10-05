@@ -15,11 +15,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
 
 public class Activity_Menu extends AppCompatActivity {
 
+    Fragment fragment = null;
+    Class fragmentClass = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,21 +38,38 @@ public class Activity_Menu extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 int id = item.getItemId();
+                fragmentClass = Fragment_Home.class;
                 if (id == R.id.nav_home) {
+                    fragmentClass = Fragment_Home.class;
                     Log.e("HOME","HOME");
                 } else if (id == R.id.nav_cines) {
+                    fragmentClass = Fragment_Cines.class;
                     Log.e("CINES","CINES");
                 } else if (id == R.id.nav_share) {
                     Log.e("COMPARTIR","COMPARTIR");
                 } else if (id == R.id.nav_tools) {
                     Log.e("HERRAMIENTAS","HERRAMIENTAS");
                 }
+                else{
+                    fragmentClass = Fragment_Home.class;
+                }
+
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main_content, fragment).commit();
                 DrawerLayout drawer = findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
+        initFragment();
     }
 
     @Override
@@ -71,10 +92,32 @@ public class Activity_Menu extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        Fragment fragment = null;
+        Class fragmentClass = null;
         if (id == R.id.action_settings) {
-            return true;
+            fragmentClass = Fragment_Settings.class;
+            Log.e("HOME", "HOME");
         }
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.main_content, fragment).commit();
+        return true;
+    }
 
-        return super.onOptionsItemSelected(item);
+    public void initFragment(){
+
+        fragmentClass = Fragment_Home.class;
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.main_content, fragment).commit();
     }
 }
