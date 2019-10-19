@@ -1,4 +1,6 @@
 <resources>
+
+    <string name="title_activity_maps">Map</string>
     <string name="app_name">CineHome</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -13,5 +15,10 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="descripcion">Descripcion: ñlasjdlñaklñkdflñfklkgfsdlafkgklfdkgñksdfjgñlsfkdgñlksfdlñgksdflñgklñsdfkglñfsdkglñsdfkglñsdfkgñlkdfsglñksdflñgksdflñgksdfñlgklñsdfkglñsdfkglñsdfkglñksdflñgksdlñfgklñdfskglñsdfkglñsfdkglñkfsdlñgkdsflñgklñsdfgklñsdfkglñdsfkgñlksdfglñ</string>
+    <string name="Domicilio">Domicilio Av4 hkjfhsjfhsdjfhdjhlsdgh jsdfhgkfdh gjksdfhlkgsdh</string>
+    <string name="horario">Horario: 8:00 am  -  12:00 am</string>
+
+
+    <string name="Domicilio_coyoacan">Domicilio Av prinicpal de coyoacan cenca del metro viveros ubicaco en el N 1984</string>
 </resources>

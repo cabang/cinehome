@@ -1,13 +1,12 @@
 package com.cine.cinehome;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.fragment.app.Fragment;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -16,8 +15,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.util.Map;
 
 public class Fragment_Cines extends Fragment implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -58,11 +55,14 @@ public class Fragment_Cines extends Fragment implements OnMapReadyCallback {
                 Log.e("market","market: " + marker.getTitle());
                 if(marker.getTitle().equals("Coyoacan"))
                 {
-                    marker.showInfoWindow();
+                    Constantes.marketSelected =0;
                 }
                 else if(marker.getTitle().equals("Las palmas")){
-
+                    Constantes.marketSelected =1;
                 }
+                marker.showInfoWindow();
+                Intent intent = new Intent(getActivity(), Activity_DetallesSucursal.class);
+                startActivity(intent);
                 return true;
             }
         });
